@@ -1,0 +1,24 @@
+from sqlalchemy import create_engine, engine_from_config
+from sqlalchemy.engine import reflection
+from sqlalchemy import inspect
+
+# Definindo as variáveis de conexão
+HOST = "localhost"
+PORT = 5433
+DATABASE = "postgres"
+USERNAME = "postgres"
+PASSWORD = "postgres"
+
+# Criando a conexão com o banco de dados
+engine = create_engine(
+    f"postgresql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+)
+insp = inspect(engine)
+
+# Nome do schema desejado
+nome_do_schema = 'EMPRESA'
+
+# Listar tabelas no schema especificado
+tabelas = insp.get_table_names(schema=nome_do_schema)
+for tabela in tabelas:
+    print(tabela)
