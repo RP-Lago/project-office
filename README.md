@@ -1,2 +1,1 @@
-# projeto-escrit-rio
-Projeto de aprendizagem.
+# Projeto de aprendizagem.
